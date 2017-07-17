@@ -3,6 +3,21 @@ This is a project built with angular cli that shows one way to attempt to reclai
 
 Note: This project was 'ejected' from the CLI tool because I need the Uglify plugin for my environment. It isn't necessary for the 'fix' to work.
 
+## To run
+This doesn't work when running ```npm run start``` so you need to do a build and then run the application from the dist folder.
+
+````
+npm run build
+cd dist
+````
+Then run this on a webserver. For my purposes, I am using node-static (https://www.npmjs.com/package/node-static)
+
+````
+static --port=4200
+````
+
+Then open your browser to http://localhost:4200
+
 ## Results
 When you launch this application, there is a 'destroy' button that removes the root application node. Without the fix, the application uses 20.5 MB of memory (in Chrome on Mac OS) both before and after destroying the application. You can also see in the memory snapshots in Chrome that there are still references in memory to the ApplicationRef, PlatformRef_, etc.
 
