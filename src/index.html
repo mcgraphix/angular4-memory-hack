@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PortalTest</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+  <button id="destroyer">destroy</button>
+  <script>
+    document.getElementById('destroyer').addEventListener('click', function() {
+        
+        var rootEl = document.getElementsByTagName('app-root')[0];
+        if (rootEl) {
+          console.log('APP: removing application root node which ' + 
+            'should trigger the platform destruction and clear out the window references');
+
+          rootEl.parentNode.removeChild(rootEl);
+        }
+    });
+</script>
+
+</body>
+</html>
