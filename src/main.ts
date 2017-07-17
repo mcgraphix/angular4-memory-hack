@@ -33,8 +33,8 @@ platform.bootstrapModule(AppModule).then((ref: NgModuleRef<AppModule>) => {
 
             if (shouldDestroy) {
               console.log('NG: Root node was removed. Destroying app.', e[0].tagName);
-              platform.destroy();
-              platform = null;
+              ref.destroy();
+              //platform = null;
               
               console.log('NG: Trying to free memory');
               delete window.webpackJsonp;

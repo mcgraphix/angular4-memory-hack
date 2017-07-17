@@ -1,0 +1,27 @@
+<h2>
+    NgRX Demo
+</h2>
+
+<p>
+    Shown below are two parts of the view that rely on the state from our ngrx store. Click the "Load Something" button
+    to trigger an action via the DemoService which will update the store's isLoading state to be true. After a short timeout
+    (to simulate a server call), the DemoService dispatches another action to set it back to false. The two items
+    below illustrate two different ways of displaying data from the store. See the <code>demo.component.ts</code>
+    file.
+</p>
+
+    <div style="position:relative; min-height:100px; border: 1px solid #cccccc; float:left">
+        <h3>Using the isLoading property</h3>
+        <p>Current value: {{isLoading}}</p>
+        <span *ngIf="isLoading">Loading...</span>
+
+    </div>
+    <div style="position:relative; min-height:100px; border: 1px solid #cccccc; float:left" >
+        <h3>Using the isLoading$ observable and async pipe</h3>
+        <p>isLoading$ Observable: {{isLoading$ | async}}</p>
+        <span *ngIf="isLoading$ | async">Loading</span>
+
+    </div>
+
+<button (click)="loadSomething()">Load Something</button>
+

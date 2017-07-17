@@ -2,6 +2,9 @@
   {{title}}
 </h1>
 
-<ul>
-  <li *ngFor="let item of data">{{item}}</li>
+<!--NGRX_DEMO:-->
+<app-ngrx-demo></app-ngrx-demo>
+
+<ul style="clear: both">
+  <app-item *ngFor="let item of data" [label]="item" [@flyInOut]="'in'"></app-item>
 </ul>
