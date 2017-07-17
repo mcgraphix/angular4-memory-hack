@@ -49,8 +49,11 @@ platform.bootstrapModule(AppModule).then((ref: NgModuleRef<AppModule>) => {
 
               console.log('NG: Tear down complete');
               
+              // remove all the nodes from the body just to simulate a blank page
+              document.body.innerHTML = 'Blank page';
             }
           }
   );
+  // comment this to see the difference     
   observer.observe(document.getElementsByTagName(ROOT_NODE)[0].parentElement, {childList:true});
 });
